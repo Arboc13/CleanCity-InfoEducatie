@@ -1,1 +1,212 @@
+Olimpiada de Inovare și Creație Digitală
+
+Secțiunea Roboți
+
+Clean City
+
+
+Autor:					   Profesor Coordonator:
+Tănase Cristian Matei		   Alin Doru Maidan
+
+https://github.com/doctodexter/Security-Video-Car/blob/main/SECURITY%20VIDEO%20CAR%20OICD%20nationala.pdf
+
+
+
+Colegiul Național “Vasile Lucaciu” din Baia Mare
+
+
+Cuprins
+
+
+Utilitate Practică	3
+Descrierea Proiectului	5
+Mecanică	5
+➢ Scheletul	5
+➢ Sistemul de Rotație	6
+➢ Coșurile de reciclare	7
+➢ Camera de recunoaștere	8
+Electronică	10
+➢ Senzori	10
+➢ Camera Video	12
+➢ Encoder	13
+Software	14
+
+
+Utilitate Practică
+
+
+Identificarea problemei
+
+Una dintre cele mai mari probleme de mediu ale României este legată de managementul deșeurilor. Mai ales gunoiul produs în marile orașe, dar și în micile comunități este, de obicei, depozitat direct la groapă fără a fi sortat, reciclat și refolosit.
+
+Pe perioada 10 Ianuarie 2022 - 30 Mai 2022 mai multe județe din România, alături de capitală, au fost evaluate de către Curtea de Conturi pe tema gropilor de gunoi neadecvate și ilegale. Una dintre cele mai comune cauze ale acestor gropi de gunoi prost menajate este lipsa de informare a cetățenilor, care nu reciclează corect deșeurile din propriile case și de pe străzi.
+
+Deși 37% din deșeuri sunt tratate, numai 3% ajung să fie reciclate din cauza gradului ridicat de contaminare a deșeurilor colectate mixte. Aproximativ 20% din materialele care ajung să fie depozitate sunt reciclabile și 50% sunt biodegradabile.
+
+Rezolvarea problemei
+
+Proiectul Clean City are ca scop rezolvarea problemei de bază: Reciclarea deseurilor care aparțin cetățenilor
+
+Prototipul Clean City oferă o alternativă ușor de folosit pentru cetățeni. Aparatul reciclează gunoiul în locul lor pentru a asigura ca deseurile pot fi tratate și prelucrate cu usurinta la gropile de gunoi.
+ Clean City (Fig.1) este format dintr-un coș de gunoi care, cu ajutorul unei camere și a unor senzori, sortează deșeurile în containerele corecte pentru reciclare.
+
+
+
+Descrierea Proiectului
+
+ Mecanică
+
+
+Scheletul
+
+
+Scheletul este făcut custom și format din bare de metal sudate împreună. Acesta oferă atat un nivel de protectie și rigiditate prototipului cât și abilitatea de a fi ușor de deplasat. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+			(Fig.2)
+Sistemul de Rotație
+
+
+Sistemul de rotație constă dintr-o bară conectată la coșurile de gunoi, un motor REV UltraPlanetar cu cutie de viteze (Fig.2), roți dințate și un rulment. Acesta are rolul de a poziționa coșurile de gunoi în locul corect.
+
+Specificați motor
+Tensiunea de lucru 12V
+Diametru 37 mm 
+Viteză de bază 6000 rpm
+Rație de 60:1
+
+
+
+
+
+
+
+
+
+
+
+			(Fig.3)
+
+
+
+Coșurile de reciclare
+
+
+Coșurile de reciclare constau într-un cerc de cauciuc cu o rază de 30 cm, împărțit în 5 secțiuni separate. Acestea sunt organizate după cum urmează: 
+
+ Coș pentru Hârtie și Carton
+ Coș pentru Metale
+ Coș pentru Sticlă
+ Coș pentru Deșeuri Menajere/Biologice 
+ Coș pentru Deșeuri Nerecunoscute
+
+Fiecare coș are un scop specific, indicat de numele său. În coșul pentru hârtie și carton se aruncă hârtia și cartonul, în coșul pentru metale se aruncă metalele, în coșul pentru sticlă se aruncă sticlele, în coșul pentru deșeuri menajere/biologice se aruncă materii organice precum resturi de mâncare sau deșeuri chimice, iar în coșul pentru deșeuri nerecunoscute se aruncă orice deșeuri care nu sunt recunoscute de programul coșului în timp util, urmând să fie sortate ulterior de moderatori. 
+Camera de recunoaștere
+
+Camera de recunoaștere este coșul principal în care sunt aruncate gunoaiele. Aceasta are rolul de a recunoaște obiectele și de a le redirecționa către compartimentul potrivit. Este formată dintr-o cutie cu o trapă la bază, o cameră video, două servomotoare și doi senzori. Odată ce camera recunoaște gunoiul, trapa este deschisă de servomotoare și gunoiul cade în compartimentul corect.
+
+
+				(Poza)
+
+
+Specificati servo:
+Greutate 60g
+Rație de 300:1
+Tensiune de lucru 4.8V - 7.4V
+Viteza 0.150°/μsec
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					(Fig.4)
+ 
+
+
+
+
+Electronică
+
+Senzori
+
+
+
+Camera de recunoaștere conține doi senzori REV de culoare V3 (Fig.). Aceștia detectează când un obiect intră în camera de recunoaștere și pornesc camera video. De asemenea, lumina de la LED-urile senzorilor asigură o luminozitate constantă pentru cameră, garantând astfel precizia acesteia.
+
+Specificati senzori: 
+Tensiune de operare: 3.3V
+Tip de senzor: I2C
+Distanță maximă de detectare: 10 cm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					(Fig.)
+Camera Video
+
+
+Camera video folosită pentru recunoașterea gunoaielor este o camera web logitech HD Pro C920, Full HD 1080p. Aceasta preia imaginile, care sunt prelucrate de un program de recunoaștere bazat pe AI.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				(Fig.)
+
+Encoder
+
+Atât motorul, cât și servomotoarele sunt echipate cu un encoder care le măsoară rotațiile și pozițiile. Cu ajutorul acestor măsurători, pozițiile corecte pentru coșurile de gunoi sunt definite și ajustate corespunzător. Aceste mișcări sunt controlate prin intermediul unui algoritm PID.
+
+
+Software
+
+
+
+Clean City se bazează pe o multitudine de programe si algoritmi software.
+
+
+
 
