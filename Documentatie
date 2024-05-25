@@ -8,8 +8,6 @@ Clean City
 Autor:					   Profesor Coordonator:
 Tănase Cristian Matei		   Alin Doru Maidan
 
-https://github.com/doctodexter/Security-Video-Car/blob/main/SECURITY%20VIDEO%20CAR%20OICD%20nationala.pdf
-
 
 
 Colegiul Național “Vasile Lucaciu” din Baia Mare
@@ -18,18 +16,27 @@ Colegiul Național “Vasile Lucaciu” din Baia Mare
 Cuprins
 
 
-Utilitate Practică	3
-Descrierea Proiectului	5
-Mecanică	5
-➢ Scheletul	5
-➢ Sistemul de Rotație	6
-➢ Coșurile de reciclare	7
-➢ Camera de recunoaștere	8
-Electronică	10
-➢ Senzori	10
-➢ Camera Video	12
-➢ Encoder	13
-Software	14
+Utilitate Practică	4
+Identificarea problemei	4
+Rezolvarea problemei	5
+Mecanică	6
+➢ Scheletul	6
+➢ Sistemul de Rotație	7
+➢ Coșurile de reciclare	8
+➢ Camera de recunoaștere	9
+Electronică	11
+Am decis să folosesc electronice REV datorită cantității largi de documentație, a ușurinței de utilizare și design-ul lor pentru competiții precum FTC.	11
+➢ Microcontroller	11
+1. Control Hub	11
+2. Driver Hub	12
+➢ Senzori	13
+➢ Camera Video	14
+➢ Encoder	15
+Software	16
+➢ Teachable Machine	16
+➢ TensorFlow Lite	18
+➢ PID	19
+➢ Descrierea Programului	20
 
 
 Utilitate Practică
@@ -47,12 +54,14 @@ Rezolvarea problemei
 
 Proiectul Clean City are ca scop rezolvarea problemei de bază: Reciclarea deseurilor care aparțin cetățenilor
 
-Prototipul Clean City oferă o alternativă ușor de folosit pentru cetățeni. Aparatul reciclează gunoiul în locul lor pentru a asigura ca deseurile pot fi tratate și prelucrate cu usurinta la gropile de gunoi.
- Clean City (Fig.1) este format dintr-un coș de gunoi care, cu ajutorul unei camere și a unor senzori, sortează deșeurile în containerele corecte pentru reciclare.
+	Prototipul Clean City oferă o alternativă ușor de folosit pentru cetățeni. Aparatul reciclează gunoiul în locul lor pentru a asigura ca deseurile pot fi tratate și prelucrate cu usurinta la gropile de gunoi.
+
+Clean City este format dintr-un coș de gunoi cu sistem de tip ruletă, care, cu ajutorul unei camere și a unor senzori, sortează deșeurile în containerele corecte pentru reciclare.
+
+Coșurile de gunoi Clean City pot fi instalate atât în parcuri, pe străzi sau în alte instituții publice, cât și în locuințe personale sau medii private.
 
 
 
-Descrierea Proiectului
 
  Mecanică
 
@@ -60,27 +69,13 @@ Descrierea Proiectului
 Scheletul
 
 
-Scheletul este făcut custom și format din bare de metal sudate împreună. Acesta oferă atat un nivel de protectie și rigiditate prototipului cât și abilitatea de a fi ușor de deplasat. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-			(Fig.2)
+Scheletul este un ansamblu în formă de cub format din suporți de metal sudați unul de celălalt. Scheletul poate să fie deschis pe una din fețe, oferind acces pentru golirea gunoaielor sau lucratul la elementele interioare ale coșului de gunoi.
 Sistemul de Rotație
 
 
-Sistemul de rotație constă dintr-o bară conectată la coșurile de gunoi, un motor REV UltraPlanetar cu cutie de viteze (Fig.2), roți dințate și un rulment. Acesta are rolul de a poziționa coșurile de gunoi în locul corect.
+Sistemul de rotație constă într-un ax conectat la un disc de plastic pe care sunt plasate coșurile de reciclare, un motor REV UltraPlanetar cu cutie de viteze montat de asupra scheletului, un lagăr cu rulment și două roți zimțate. Acesta are rolul de a poziționa coșurile de gunoi în locul corect ca și o ruletă
 
-Specificați motor
+Specificații motor
 Tensiunea de lucru 12V
 Diametru 37 mm 
 Viteză de bază 6000 rpm
@@ -96,14 +91,12 @@ Rație de 60:1
 
 
 
-			(Fig.3)
-
 
 
 Coșurile de reciclare
 
 
-Coșurile de reciclare constau într-un cerc de cauciuc cu o rază de 30 cm, împărțit în 5 secțiuni separate. Acestea sunt organizate după cum urmează: 
+Coșurile de reciclare constă într-un cilindru de cauciuc cu o rază de 30 cm, împărțit în 5 secțiuni egale. Acestea sunt organizate în următorul fel: 
 
  Coș pentru Hârtie și Carton
  Coș pentru Metale
@@ -111,16 +104,18 @@ Coșurile de reciclare constau într-un cerc de cauciuc cu o rază de 30 cm, îm
  Coș pentru Deșeuri Menajere/Biologice 
  Coș pentru Deșeuri Nerecunoscute
 
-Fiecare coș are un scop specific, indicat de numele său. În coșul pentru hârtie și carton se aruncă hârtia și cartonul, în coșul pentru metale se aruncă metalele, în coșul pentru sticlă se aruncă sticlele, în coșul pentru deșeuri menajere/biologice se aruncă materii organice precum resturi de mâncare sau deșeuri chimice, iar în coșul pentru deșeuri nerecunoscute se aruncă orice deșeuri care nu sunt recunoscute de programul coșului în timp util, urmând să fie sortate ulterior de moderatori. 
+
+Fiecare coș are un scop specific, indicat de numele său. În coșul pentru hârtie și carton se aruncă hârtia și cartonul, în coșul pentru metale se aruncă metalele și dozele de suc, în coșul pentru sticlă se aruncă sticlele, în coșul pentru deșeuri menajere/biologice se aruncă materii organice precum resturi de mâncare sau deșeuri chimice, iar în coșul pentru deșeuri nerecunoscute se aruncă orice deșeuri care nu sunt recunoscute de programul coșului în timp util, urmând să fie sortate ulterior de moderatori. 
 Camera de recunoaștere
 
-Camera de recunoaștere este coșul principal în care sunt aruncate gunoaiele. Aceasta are rolul de a recunoaște obiectele și de a le redirecționa către compartimentul potrivit. Este formată dintr-o cutie cu o trapă la bază, o cameră video, două servomotoare și doi senzori. Odată ce camera recunoaște gunoiul, trapa este deschisă de servomotoare și gunoiul cade în compartimentul corect.
+Camera de recunoaștere este compartimentul principal în care sunt aruncate gunoaiele. Aceasta are rolul de a recunoaște obiectele și de a le redirecționa către compartimentul potrivit. Este formată dintr-o cutie cu o trapă la bază, o cameră video, două servomotoare și doi senzori. Odată ce camera recunoaște gunoiul, trapa este deschisă de servomotoare și gunoiul cade în compartimentul corect. Pentru a ne asigura că alte deșeuri nu sunt aruncate în timpul scanări, un servo va semnaliza faptul că camera de recunoaștere este folosită.
 
 
-				(Poza)
+			
 
 
-Specificati servo:
+
+Specificații servo:
 Greutate 60g
 Rație de 300:1
 Tensiune de lucru 4.8V - 7.4V
@@ -147,6 +142,27 @@ Viteza 0.150°/μsec
 
 Electronică
 
+	Am decis să folosesc electronice REV datorită cantității largi de documentație, a ușurinței de utilizare și design-ul lor pentru competiții precum FTC. 	
+
+
+Microcontroller
+
+Control Hub
+Electronicele  REV sunt create în așa fel încât să poată fi controlate de către un singur microcontroller: Control Hub-ul REV.
+
+
+Control Hub-ul REV este folosit în competiția internațională FIRST Tech Challenge și are rolul de controler sau “creier” al robotului. Acesta conține o multitudine de porturi pentru diferite tipuri de componente electronice de la motoare și servomotoare, până la senzori digitali sau analogi sau chiar camere video. Control Hub-ul rulează un sistem de operare Android pe care se încarcă aplicați de tipul Robot Controller. Aplicația Robot Controller conține comenzile necesare pentru robot, însă input-ul provine din altă parte.
+
+
+Driver Hub
+
+Driver Hub-ul de la REV este un dispozitiv Android ce se conectează la Control Hub wireless și crează o comunicare între Control Hub și utilizator. În cazul proiectului Clean City, putem folosi Driver Hub-ul ca și confirmare că codul funcționează prin afișarea datelor interpretate de către cod.
+
+
+
+
+
+
 Senzori
 
 
@@ -157,24 +173,6 @@ Specificati senzori:
 Tensiune de operare: 3.3V
 Tip de senzor: I2C
 Distanță maximă de detectare: 10 cm
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					(Fig.)
 Camera Video
 
 
@@ -205,8 +203,40 @@ Software
 
 
 
-Clean City se bazează pe o multitudine de programe si algoritmi software.
+Clean City se bazează pe o multitudine de programe, tehnici si algoritmi software. Codul este scris în întregime în Java, folosind SDK-ul Robot Controller oferit de către FTC pentru a încărca aplicația pe Control Hub.
+Teachable Machine 
+
+	Teachable Machine este un instrument online dezvoltat de Google care permite utilizatorilor să creeze modele de machine learning. Odată creat, modelul poate fi exportat ca și fișier TensorFlow.js, TensorFlow sau TensorFlow Lite care sunt folosite pentru recunoaștere în medii web, standard pentru machine learning și mobil respectiv. 
+
+În cazul proiectului nostru, deoarece codul este rulat pe un dispozitiv Android ne folosim de TensorFlow Lite.
 
 
 
 
+TensorFlow Lite
+
+Pentru a înțelege ce este TensorFlow Lite, trebuie mai întâi să înțelegem ce este TensorFlow. TensorFlow este un framework open-source dezvoltat de Google pentru a construi și a antrena modele de machine learning și inteligență artificială. Lansat inițial în 2015, TensorFlow este utilizat atât pentru cercetarea academică, cât și pentru aplicații industriale datorită flexibilității și puterii sale. 
+
+
+TensorFlow Lite este o versiune ușoară a framework-ului TensorFlow, dezvoltată special pentru a rula modelele de machine learning pe dispozitive mobile și încorporate. Scopul său principal este de a aduce capabilitățile de inteligență artificială pe dispozitive cu resurse limitate, cum ar fi telefoanele mobile, tabletele, microcontrolerele și alte dispozitive IoT.
+
+PID
+
+
+Algoritmul PID (Proportional - Integral - Derivative) este un algoritm care reglează poziția motoarelor pentru a oferi precizie maximă. Acesta se folosește de trei constante: constanta proporțională (kp), constanta integrala (ki) și constanta derivată (kd). Aceste constante reglează puterea oferită motorului față de timp pentru a corecta erorile de poziționare.
+
+Constanta proporțională corectează eroarea în mod direct după formula 𝑃=𝐾𝑝⋅𝑒(𝑡)
+
+Constanta integrală corectează eroarea preluată în timp și are formula 𝐼=𝐾𝑖⋅∫𝑒(𝑡)𝑑𝑡
+
+Constanta derivată corectează viteza de schimbare a erori și folosește formula 𝐷=𝐾𝑑⋅𝑑𝑒(𝑡)𝑑𝑡
+
+	Formula generală este
+ 𝐾𝑝⋅𝑒(𝑡) + 𝐾𝑖⋅∫𝑒(𝑡)𝑑𝑡 + 𝐾𝑑⋅𝑑𝑒(𝑡)𝑑𝑡
+
+
+
+
+Descrierea Programului
+
+Odată ce senzori detectează un obiect nou în cutia de sortare programul compară imaginea cu modelul TensorFlow Lite creat în Teachable Machine. Dacă imaginea are o precizie de cel puțin 90% pentru 1.5 secunde, ruleta se va învârti la poziția corespunzătoare iar trapa se va deschide. Dacă durează mai mult de 5 sec să se recunoască un gunoi, acesta este aruncat la deșeuri necunoscute.
